@@ -1,0 +1,18 @@
+var http = require('http');
+
+var callback = function(request,response){
+	response.writeHead('20');
+	response.write("Programming is started !!!");
+	response.end();
+}
+
+http.createServer(function(request,response){
+	response.writeHead('20');
+	response.write("Program is started !!!");
+	response.setTimeOut(function(){
+		response.write("Program is stopped after 5 seconds");
+		response.end();
+	},5000);
+}).listen(8080);
+
+

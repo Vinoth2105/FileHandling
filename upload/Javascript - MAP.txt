@@ -1,0 +1,618 @@
+
+-------------------------------------------
+var passengers = [ ["Thomas", "Meeks"],
+                   ["Gregg", "Pollack"],
+                   ["Christine", "Wong"],
+                   ["Dan", "McGaw"] ];
+
+var modifiedNames = passengers.map(
+  function(temp1){
+    return (temp1[0]+" "+temp1[1]);  	
+  }
+);
+
+--------------------------------------------
+
+
+var modifiedNames = [ "Thomas Meeks", 
+                      "Gregg Pollack", 
+                      "Christine Wong", 
+                      "Dan McGaw" ];
+
+modifiedNames.map(
+  function(key){
+  	alert("Yo, "+key[0]);
+  }
+);
+
+-------------------------------------------
+
+
+var arr = [f4(),];
+
+function f4(a){
+			return a%4;
+}
+
+------------------------------------------
+
+function adventureSelector ( userChoice ){
+  if(userChoice == 1){
+    return function () {
+    alert("You've selected the Vines of Doom!\n" +
+          "Hope you have a swingin' time.");
+    };
+  } else if (userChoice == 2){
+    return function () {
+    alert("Looks like you want the Lake of Despair!\n" +
+          "Watch out for crocs. And I ain't talkin' about shoes.");
+    };
+  } else if (userChoice == 3) {
+    return function () {
+      alert("The Caves of Catastrophe, really?\n" +
+            "Alright, well....nice knowing you.");
+    };
+  }
+}
+
+-----------------------------------------------------
+
+function warningMaker( obstacle ){
+  return function (number,location) {    
+     alert("Beware! There have been "+obstacle+" sightings in the Cove today!\n"+number+" "+obstacle+"(s) spotted at the "+location+"!");
+    
+     };
+}
+
+------------------------------------------------------
+2.10
+
+function warningMaker( obstacle ){
+  var count = 0;
+  return function ( number, location ) {
+    count ++;
+    alert("Beware! There have been " +
+          obstacle +
+          " sightings in the Cove today!\n" +
+          number +
+          " " +
+          obstacle +
+          "(s) spotted at the " +
+          location +
+          "!\n"+
+          "This is Alert #"+count+" today for "+obstacle+" danger."
+         );
+  };
+}
+
+--------------------------------------------------------------
+2.11
+
+function warningMaker( obstacle ){
+  var count = 0;
+  var zones = [];
+  return function ( number, location ) {
+    count++;
+    zones.push(location);
+    var list = "";
+    for(var i = 0; i<zones.length; i++){
+        list = list + "\n" + zones[i];
+    }
+    alert("Beware! There have been " +
+          obstacle +
+          " sightings in the Cove today!\n" +
+          number +
+          " " +
+          obstacle +
+          "(s) spotted at the " +
+          location +
+          "!\n" +
+          "This is Alert #" +
+          count +
+          " today for " +
+          obstacle +
+          " danger.\n" +
+          "Current danger zones are:" +
+          list
+         );
+  };
+}
+-----------------------------------------------------------------------
+3.13
+
+function theBridgeOfHoistingDoom () {
+  var ring = undefined;
+ 	var power = undefined;
+  ring = wizard;
+  wizard = balrog;  
+ 
+ 
+  function balrog(){
+    return "whip";
+  }
+  function wizard(){
+    return "white";
+  }
+  
+  function elf(){
+    return "immortal";
+  }
+  
+}
+-------------------------------------------------------------------------
+
+3.4
+
+function theBridgeOfHoistingDoom( ){
+   var sword = undefined;
+   var dwarf = undefined;
+   var fall = undefined;
+   var ring = undefined;
+   sword = "sting";
+   fall = "Fly you fools!";
+   
+  function fellowship(){
+    return "friends";
+  } 
+  
+  dwarf = function(){ 
+    return "axe";
+  };  
+  
+  fellowship = function(){
+    return "broken";
+  };
+  
+  
+ 
+  sword = function(){
+    return "glamdring";
+  };
+  
+  ring = function(){
+      return "precious";
+  };
+  
+}
+
+-----------------------------------------------------------
+4.4
+
+var vehicle1 = {type: "Motorboat", capacity: 6, storedAt: "Ammunition Depot"};
+var vehicle2 = {type: "Jet Ski", capacity: 1, storedAt: "Reef Dock"};
+var vehicle3 = {type: "Submarine", capacity: 8, storedAt: "Underwater Outpost"};
+var vehicles = [vehicle1,vehicle2,vehicle3];
+
+findVehicle("Submarine",vehicles)
+
+var findVehicle = function (name,list){  
+  for(var i=0; i < list.length; i++){
+    if(name == list[i].type){
+    	return list[i].storedAt;
+    }
+  };
+
+}
+
+-----------------------------------------------------------
+4.5
+
+var vehicle1 = {type: "Motorboat", capacity: 6, storedAt: "Ammunition Depot"};
+var vehicle2 = {type: "Jet Ski", capacity: 1, storedAt: "Reef Dock"};
+var vehicle3 = {type: "Submarine", capacity: 8, storedAt: "Underwater Outpost"};
+vehicle1.weapon = "Rear-Mounted Slingshot";
+vehicle1.submersible = false;
+vehicle2.weapon = "Lasers";
+vehicle2.submersible = false;
+vehicle3.weapon = "Torpedoes";
+vehicle3.submersible = true;
+vehicle1.capacity+=4;
+vehicle3.capacity*=2;
+-------------------------------------------------------------
+4.6
+
+var vehicle1 = {type: "Motorboat", capacity: 6, storedAt: "Ammunition Depot"};
+var vehicle2 = {type: "Jet Ski", capacity: 1, storedAt: "Reef Dock"};
+var vehicle3 = {type: "Submarine", capacity: 8, storedAt: "Underwater Outpost"};
+vehicle1.capacity += 4;
+vehicle2.submersible = false;
+vehicle3.weapon = "Torpedoes";
+vehicle1.submersible = false;
+vehicle2.weapon = "Lasers";
+vehicle3.capacity *= 2;
+vehicle1.weapon = "Rear-Mounted Slingshot";
+vehicle3.submersible = true;
+vehicle3["# of weapons"]=8;
+vehicle2["# of weapons"]=4;
+vehicle1["# of weapons"]=1;
+
+
+---------------------------------------------------------------
+4.7
+
+var superBlinders = [ ["Firelight", 4000], ["Solar Death Ray", 6000], ["Supernova", 12000] ];
+var lighthouseRock = {
+  gateClosed: true,
+  bulbs: [ 200, 500, 750 ],
+  capacity: 30,
+  secretPassageTo: "Underwater Outpost"
+};
+
+delete lighthouseRock.bulbs;
+lighthouseRock.weaponBulbs = superBlinders;
+
+for(var i=0;i<superBlinders.length; i++){
+  var watt =0;
+  var buldName = undefined;
+  if(superBlinders[i][1]  >  watt ){
+     watt = superBlinders[i][1];
+     buldName = superBlinders[i][0]
+   }  
+}
+
+console.log(buldName);
+--------------------------------------------------------------------------------------
+
+4.9
+
+var superBlinders = [ ["Firestorm", 4000], ["Solar Death Ray", 6000], ["Supernova", 12000] ];
+var lighthouseRock = {
+  gateClosed: true,
+  weaponBulbs: superBlinders,
+  capacity: 30,
+  secretPassageTo: "Underwater Outpost",
+  numRangers: 3,
+  ranger1: {name: "Nick Walsh", skillz: "magnification burn", station: 2},
+  ranger2: {name: "Drew Barontini", skillz: "uppercut launch", station: 3},
+  ranger3: {name: "Christine Wong", skillz: "bomb defusing", station: 1}
+};
+function dontPanic (location){
+  var list = "";
+  for(var i = 1; i<=location.numRangers; i++){
+    list = list + location["ranger" + i].name + ", man the " +
+           location.weaponBulbs[location["ranger"+i].station-1][0] + 
+           "!\n";
+  }
+  alert("Avast, me hearties!\n" + 
+        "There be Pirates nearby! Stations!\n" + list);
+}
+dontPanic(lighthouseRock);
+
+
+--------------------------------------------------------------------------------------
+
+4.11
+
+var superBlinders = [ ["Firestorm", 4000], ["Solar Death Ray", 6000], ["Supernova", 12000] ];
+var lighthouseRock = {
+  gateClosed: true,
+  weaponBulbs: superBlinders,
+  capacity: 30,
+  secretPassageTo: "Underwater Outpost",
+  numRangers: 3,
+  ranger1: {name: "Nick Walsh", skillz: "magnification burn", station: 2},
+  ranger2: {name: "Drew Barontini", skillz: "uppercut launch", station: 3},
+  ranger3: {name: "Christine Wong", skillz: "bomb defusing", station: 1},
+  addRanger : function(ranger,name,skillz,station){
+  this[ranger] = {name:name,skillz:skillz,station:station};
+	}
+  
+};
+
+======================================================================================
+4.12
+
+var superBlinders = [ ["Firestorm", 4000], ["Solar Death Ray", 6000], ["Supernova", 12000] ];
+var lighthouseRock = {
+  gateClosed: true,
+  weaponBulbs: superBlinders,
+  capacity: 30,
+  secretPassageTo: "Underwater Outpost",
+  numRangers: 3,
+  ranger1: {name: "Nick Walsh", skillz: "magnification burn", station: 2},
+  ranger2: {name: "Drew Barontini", skillz: "uppercut launch", station: 3},
+  ranger3: {name: "Christine Wong", skillz: "bomb defusing", station: 1},
+  addRanger: function (name, skillz, station){
+    this.numRangers++;
+    this["ranger" + this.numRangers] = {
+      name: name,
+      skillz: skillz,
+      station: station
+    };
+  }
+};
+
+lighthouseRock.addRanger("Jordan Wade","dual-wield hand crossbow",4);
+
+=====================================================================================
+
+4.13
+
+var vehicle3 = {
+  type: "Submarine", capacity: 8, storedAt: "Underwater Outpost",
+  ranger1: { name: "Gregg Pollack", skillz: "Lasering", dayOff: "Friday"},
+  ranger2: { name: "Bijan Boustani", skillz: "Roundhouse Kicks", dayOff: "Tuesday"},
+  ranger3: { name: "Ashley Smith", skillz: "Torpedoing", dayOff: "Friday"},
+  ranger4: { name: "Mark Krupinski", skillz: "Sniping", dayOff: "Wednesday"},
+  numRangers: 4
+};
+function relieveDuty (vehicle, day){
+  var offDuty = [ ];
+  var onDuty = [ ];
+  for(var i = 1; i<=vehicle["numRangers"]; i++){
+    if(vehicle["ranger" + i]["dayOff"] == day){
+      offDuty.push(vehicle["ranger" + i]);
+    }
+    else{
+      onDuty.push(vehicle["ranger" + i]);
+    }
+    delete vehicle["ranger" + i];
+  }
+  vehicle.numRangers -= offDuty.length;
+  for(var j = 1; j<=vehicle["numRangers"]; j++){
+    vehicle["ranger" + j] = onDuty.shift();
+  }
+  return offDuty;
+}
+var offToday = relieveDuty(vehicle3, "Friday");
+
+=====================================================================================
+
+4.17
+
+var rockSpearguns = {
+  Sharpshooter: {barbs: 2, weight: 10, heft: "overhand"},
+  Pokepistol: {barbs: 4, weight: 8, heft: "shoulder"},
+  Javelinjet: {barbs: 4, weight: 12, heft: "waist"},
+  Firefork: {barbs: 6, weight: 8, heft: "overhand"},
+  "The Impaler": {barbs: 1, weight: 30, heft: "chest"}
+};
+
+listGuns(rockSpearguns);
+
+function listGuns(guns){
+  
+  for (key in guns){
+			console.log(key);
+  }
+
+}
+
+==================================================================================
+4.18
+
+var rockSpearguns = {
+  Sharpshooter: {barbs: 2, weight: 10, heft: "overhand"},
+  Pokepistol: {barbs: 4, weight: 8, heft: "shoulder"},
+  Javelinjet: {barbs: 4, weight: 12, heft: "waist"},
+  Firefork: {barbs: 6, weight: 8, heft: "overhand"},
+  "The Impaler": {barbs: 1, weight: 30, heft: "chest"}
+};
+listGuns(rockSpearguns);
+
+function listGuns(guns){
+  for(key in guns){
+    	console.log("Behold! "+[key]+", with "+guns[key].heft+" heft!");
+  }
+}
+
+====================================================================================
+4.19
+
+var rockSpearguns = {
+  Sharpshooter: {barbs: 2, weight: 10, heft: "overhand"},
+  Pokepistol: {barbs: 4, weight: 8, heft: "shoulder"},
+  Javelinjet: {barbs: 4, weight: 12, heft: "waist"},
+  Firefork: {barbs: 6, weight: 8, heft: "overhand"},
+  "The Impaler": {barbs: 1, weight: 30, heft: "chest"},
+  listGuns : function(){
+    for(var property in this){
+	
+      if(this[property]["heft"] != undefined){
+        	 console.log("Behold! " + [property] +
+                ", with " + this[property]["heft"] +
+                " heft!");
+      }
+    }
+  }
+};
+rockSpearguns. listGuns();
+
+===================================================================================
+5.2
+
+Array.prototype.countCattle = function(letter){
+	var count = 0;
+  for(var i=0; i< this.length; i++){
+    if(this[i].type == letter){
+    		count ++;   
+    }
+  }
+  return count;
+};
+
+=====================================================================================
+5.3
+
+Array.prototype.countCattle = function ( kind ){
+  var numKind = 0;
+  for(var i = 0; i<this.length; i++){
+    if(this[i].type == kind){
+      numKind++;
+    }
+  }
+  return numKind;
+};
+
+alert(canyonCows.countCattle("calf")+valleyCows.countCattle("bull")+forestCows.countCattle("cow"));
+
+======================================================================================
+
+5.4
+
+Object.prototype.noCalvesYet = function () {
+  if(this.type == "cow" && this.hadCalf == null){
+    return true;
+  }
+  return false;
+};
+Array.prototype.countForBreeding = function(){
+  var numToBreed = 0;
+  for(var i = 0; i<this.length; i++){
+    if(this[i].noCalvesYet()){
+      numToBreed++;
+    }
+  }
+  return numToBreed;
+};
+
+======================================================================================
+
+5.5
+
+Object.prototype.noCalvesYet = function () {
+  if(this.type == "cow" && this.hadCalf == null){
+    return true;
+  }
+  return false;
+};
+Array.prototype.countForBreeding = function(){
+  var numToBreed = 0;
+  for(var i = 0; i< this.length; i++){
+    if(this[i].noCalvesYet()){
+      numToBreed++;
+    }
+  }
+  return numToBreed;
+};
+
+var numPriorityCows = canyonCows.countForBreeding()+valleyCows.countForBreeding()+forestCows.countForBreeding()+badlandsCows.countForBreeding();
+alert("Herd-merger has indicated "+numPriorityCows+" cows of top breeding priority.");
+
+=====================================================================================
+
+5.7
+
+
+var genericPost =
+  {x: 0, y: 0, postNum: undefined,
+   connectionsTo: undefined,
+   sendRopeTo: function ( connectedPost ) {
+     if(this.connectionsTo == undefined){
+       var postArray = [ ];
+       postArray.push(connectedPost);
+       this.connectionsTo = postArray;
+     } else {
+       this.connectionsTo.push(connectedPost);
+     }
+   }
+  };
+var post1 = Object.create(genericPost);
+var post2 = Object.create(genericPost);
+post1.x = -2;
+post1.y = 4;
+post1.postNum = 1;
+post2.x = 5;
+post2.y = 1;
+post2.postNum = 2;
+
+=======================================================================================
+
+5.8
+
+var genericPost = {
+  x: 0, 
+  y: 0, 
+  postNum: undefined, 
+  connectionsTo: undefined,
+  sendRopeTo: function ( connectedPost ) {
+    if(this.connectionsTo == undefined){
+      var postArray = [ ];
+      postArray.push(connectedPost);
+      this.connectionsTo = postArray;
+    } else {
+      this.connectionsTo.push(connectedPost);
+    }
+  }
+};
+var post8 = Object.create(genericPost);
+var post9 = Object.create(genericPost);
+var post10 = Object.create(genericPost);
+post8.x = 0;
+post8.y = -3;
+post8.postNum = 8;
+post8.sendRopeTo(post10);
+post9.x = 6;
+post9.y = 8;
+post9.postNum = 9;
+post9.sendRopeTo(post10);
+post10.x = -2;
+post10.y = 3;
+post10.postNum = 10;
+post10.sendRopeTo(post8);
+post10.sendRopeTo(post9);
+post9.numBirds = 0;
+post10.weathervane = "N";
+post8.lightsOn = false;
+post10.lightsOn = false;
+
+================================================================================
+5.9
+
+function Fencepost (x, y, postNum){
+  this.x = x;
+  this.y = y;
+  this.postNum = postNum;
+  this.connectionsTo = [];
+  this.sendRopeTo = function ( connectedPost ){
+    this.connectionsTo.push(connectedPost);
+  };
+}
+================================================================================
+5.10
+
+function Fencepost (x, y, postNum){
+  this.x = x;
+  this.y = y;
+  this.postNum = postNum;
+  this.connectionsTo = [];
+  this.sendRopeTo = function ( connectedPost ){
+    this.connectionsTo.push(connectedPost);
+  };
+}
+var post18 = new Fencepost(-3, 4, 18);
+var post19 = new Fencepost(5, -1, 19);
+var post20 = new Fencepost(-2, 10, 20);
+post18.sendRopeTo(post20);
+post20.sendRopeTo(post18);
+post18.sendRopeTo(post19);
+post19.sendRopeTo(post18);
+
+=================================================================================
+5.11
+
+function Fencepost (x, y, postNum){
+  this.x = x;
+  this.y = y;
+  this.postNum = postNum;
+  this.connectionsTo = [];
+}
+Fencepost.prototype = {
+  sendRopeTo: function ( connectedPost ){
+    this.connectionsTo.push(connectedPost);
+  },
+  removeRope: function ( removeTo ){
+    var temp = [];
+    for(var i = 0; i<this.connectionsTo.length; i++){
+      if(this.connectionsTo[i].postNum != removeTo){
+        temp.push(this.connectionsTo[i]);
+      }
+    }
+    this.connectionsTo = temp;
+  },
+  movePost: function (x, y){
+    this.x = x;
+    this.y = y;
+  }
+};
+================================================================================

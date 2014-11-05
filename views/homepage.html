@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8"> 
+  <title>File Handling</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+</head>
+<body>
+
+	<div id="wrapper">
+		<div id="header"><h2>File Handling<h2></div>
+		<div id="content">
+			<div id="content-main">
+				<form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">			
+					Upload file : <input type="file" name="file_name"><input type="submit" id="submit" name="submit" value="Upload">
+					<br><br>
+					<div id="load"></div>				
+				</form>
+			</div>
+		</div>
+		<div id="footer">Talent Improving exercise, OFS</div>
+	</div>
+	
+	 <script type="text/javascript"> 	
+		var myArray,inputButton;
+		myArray = "<%=filenameList%>".split(",");
+		document.getElementById("load").innerHTML = "";		
+		var table = document.createElement('table');
+			table.setAttribute('width','400%')
+			table.align ="center";
+			for(i=1; i<=myArray.length; i++){
+				 var tr = document.createElement('TR');
+				 if(i%2 == 0){
+				  tr.setAttribute("id", "cellone");
+				}else{
+				  tr.setAttribute("id", "celltwo");
+				}
+				 
+				 table.appendChild(tr);
+				 for (var j=0; j<2; j++){
+				   var td = document.createElement('TD');					
+					if(j==0)
+					{	
+						td.appendChild(document.createTextNode(myArray[i]));
+					}else{
+						var a = document.createElement("a");
+						var url = "/download?filename="+myArray[i];
+						a.setAttribute('href',url); 
+						a.innerHTML = "Download";
+						td.appendChild(a);
+					}				  
+				   tr.appendChild(td);
+				}
+			}		
+		document.getElementById("load").appendChild(table);
+  </script>
+	
+</body>
+</html>

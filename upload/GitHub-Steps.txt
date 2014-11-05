@@ -1,0 +1,136 @@
+Welcome to Git (version 1.9.4-preview20140929)
+
+
+Run 'git help git' to display the help index.
+Run 'git help <command>' to display help for specific commands.
+
+vinothm@PC1581 ~ (master)
+$ cd D:/Official/MyBookProject
+
+vinothm@PC1581 /d/Official/MyBookProject
+$ git init
+Initialized empty Git repository in d:/Official/MyBookProject/.git/
+
+vinothm@PC1581 /d/Official/MyBookProject (master)
+$ git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        css/
+        home.html
+        html/
+        images/
+        index.html
+        scripts/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+vinothm@PC1581 /d/Official/MyBookProject (master)
+$ git commit -m "first commit"
+On branch master
+
+Initial commit
+
+Untracked files:
+        css/
+        home.html
+        html/
+        images/
+        index.html
+        scripts/
+
+nothing added to commit but untracked files present
+
+vinothm@PC1581 /d/Official/MyBookProject (master)
+$ git add -A
+
+vinothm@PC1581 /d/Official/MyBookProject (master)
+$ git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+
+        new file:   css/style.css
+        new file:   home.html
+        new file:   html/myfeed.html
+        new file:   html/profile.html
+        new file:   images/books-wallpaper.jpg
+        new file:   images/delete.jpg
+        new file:   images/smallBook.png
+        new file:   images/user.jpg
+        new file:   index.html
+        new file:   scripts/feed.js
+        new file:   scripts/validation.js
+
+
+vinothm@PC1581 /d/Official/MyBookProject (master)
+$ git commit -m "first commit"
+[master (root-commit) 6653384] first commit
+ Committer: unknown <vinothm@PC1581.itp.objectfrontier.com>
+Your name and email address were configured automatically based
+on your username and hostname. Please check that they are accurate.
+You can suppress this message by setting them explicitly:
+
+    git config --global user.name "Your Name"
+    git config --global user.email you@example.com
+
+After doing this, you may fix the identity used for this commit with:
+
+    git commit --amend --reset-author
+
+ 11 files changed, 480 insertions(+)
+ create mode 100644 css/style.css
+ create mode 100644 home.html
+ create mode 100644 html/myfeed.html
+ create mode 100644 html/profile.html
+ create mode 100644 images/books-wallpaper.jpg
+ create mode 100644 images/delete.jpg
+ create mode 100644 images/smallBook.png
+ create mode 100644 images/user.jpg
+ create mode 100644 index.html
+ create mode 100644 scripts/feed.js
+ create mode 100644 scripts/validation.js
+
+vinothm@PC1581 /d/Official/MyBookProject (master)
+$ git push
+fatal: No configured push destination.
+Either specify the URL from the command-line or configure a remote repository us
+ing
+
+    git remote add <name> <url>
+
+and then push using the remote name
+
+    git push <name>
+
+
+vinothm@PC1581 /d/Official/MyBookProject (master)
+$ git commit -m "first commit"
+On branch master
+nothing to commit, working directory clean
+
+vinothm@PC1581 /d/Official/MyBookProject (master)
+$ git remote add origin https://github.com/Vinoth2105/MyBookProject.git
+
+vinothm@PC1581 /d/Official/MyBookProject (master)
+$ git push -u origin master
+Username for 'https://github.com': Vinoth2105
+Password for 'https://Vinoth2105@github.com':
+Counting objects: 17, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (15/15), done.
+Writing objects: 100% (17/17), 209.31 KiB | 0 bytes/s, done.
+Total 17 (delta 1), reused 0 (delta 0)
+To https://github.com/Vinoth2105/MyBookProject.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+
+vinothm@PC1581 /d/Official/MyBookProject (master)
+$

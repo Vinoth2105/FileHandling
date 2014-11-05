@@ -1,0 +1,89 @@
+<html>
+<head>
+
+<script type="text/javascript" >
+function formValidation(oEvent) { 
+oEvent = oEvent || window.event; 
+var txtField = oEvent.target || oEvent.srcElement; 
+
+var t1ck=true;
+var msg=" ";
+if(document.getElementById("t1").value.length < 3 ){ t1ck=false; msg = msg + "Your name should be minimun 3 char length";}
+if(!document.getElementById("r1").checked && !document.getElementById("r2").checked){ t1ck=false;msg = msg + " Select your Gender";}
+if(document.getElementById("s1").value.length < 3 ){ t1ck=false;msg = msg + " Select one of the games ";}
+if(!document.getElementById("c1").checked ){ t1ck=false;msg = msg + " You must agree to terms & conditions ";}
+
+//alert(msg + t1ck);
+
+if(t1ck){document.getElementById("btnSignUp").disabled = false; }
+else{document.getElementById("btnSignUp").disabled = true; }
+} 
+
+function resetForm(){
+document.getElementById("btnSignUp").disabled = true; 
+var frmMain = document.forms[0]; 
+frmMain.reset();
+}
+
+window.onload = function () { 
+
+var btnSignUp = document.getElementById("btnSignUp"); 
+var btnReset = document.getElementById("btnReset"); 
+
+var t1 = document.getElementById("t1"); 
+var r1 = document.getElementById("r1"); 
+var r2 = document.getElementById("r2"); 
+var s1=document.getElementById("s1");
+var c1=document.getElementById("c1");
+
+var t1ck=false;
+document.getElementById("btnSignUp").disabled = true;
+t1.onkeyup = formValidation; 
+r1.onclick = formValidation; 
+r2.onclick = formValidation; 
+s1.onclick = formValidation; 
+c1.onclick = formValidation;
+btnReset.onclick = resetForm;
+}
+</script>
+</head>
+<body >
+
+<form method=" post" action="form-submit.php"> 
+<table> 
+<tr> 
+<td>First Name</td> 
+<td><input type="text" id="t1" name="FirstName"></td> 
+</tr> 
+<tr> 
+<tr> 
+<td>Gender</td> 
+<td><input type="radio" id="r1" name="gender" value=Male>Male <input type="radio" id="r2" name="gender" value=Female>Female</td> 
+</tr> 
+<tr> 
+<td>Games Played</td> 
+<td><select name="games" id="s1" ><option value=''>Select One</option><option value=Football>FootBall</option>
+<option value=Tenis>Tenis</option>
+<option value=cricket>Cricket</option>
+</select>
+</td> 
+</tr> 
+<tr><td>Terms & Condition</td><td><input type=checkbox name=agree value=yes id=c1></td></tr> 
+</table> 
+<input type="submit" id="btnSignUp" value="Sign Up!!" /> <input type=reset id=btnReset value=Reset>
+</form> 
+<br><br>
+Return to <a href=form-submit.php>Form submit Demo</a>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-621868-1', 'plus2net.com');
+  ga('send', 'pageview');
+setTimeout("ga('send','event','Profitable Engagement','time on page more than 3 minutes')",180000);
+</script>
+</body>
+</html> 
+
